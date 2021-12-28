@@ -1,0 +1,55 @@
+@import url(./normalize.css);
+
+$bright_pink: #d100d8;
+$violet: #7900c9;
+$dark_violet: #481173;;
+
+@mixin content_box {
+  display: flex;
+  flex-direction: column;
+  width: 100wh;
+  // height: 200px;
+  // height: max-content;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100vh;
+}
+
+header {
+  @include content_box();
+  background-image: linear-gradient(to right, $bright_pink, $violet);
+
+  div {
+    @include content_box();
+  }
+}
+
+header::after {
+  content: '';
+  height: 30px;
+  width: 100%;
+  border-radius: 30px 30px 0 0;
+  background-color: white;
+}
+
+main {
+  @include content_box();
+  height: 100%;
+}
+
+footer {
+  @include content_box();
+  background-color: $dark_violet;
+}
+
+footer::before {
+  content: '';
+  height: 30px;
+  width: 100%;
+  border-radius: 0 0 30px 30px;
+  background-color: white;
+}
